@@ -1,6 +1,5 @@
 package lab01.n11;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.text.InputType;
 import android.view.Gravity;
@@ -28,17 +27,17 @@ public class LabItem11 extends LabItem {
 	@Override
 	public void exec() {
 		super.exec();
-		i11_scrInput();
+		scrInput();
 	}
 	
     ///////////////////////////////////////////////////////////////////////////
     // Формирование первого экрана ввода исходных данных
     ///////////////////////////////////////////////////////////////////////////
-    private void i11_scrInput() {
+    private void scrInput() {
 		ll.removeAllViews();
 		
         TextView tv = new TextView(ll.getContext());
-        tv.setText("1.1 Алгоритм LU - разложение матриц");
+        tv.setText(topic);
         tv.setTextColor(Color.YELLOW);
         ll.addView(tv);
         
@@ -94,7 +93,7 @@ public class LabItem11 extends LabItem {
         
         bt.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				i11_scrResult();
+				scrResult();
 			}
 		});
     	
@@ -178,7 +177,7 @@ public class LabItem11 extends LabItem {
     ///////////////////////////////////////////////////////////////////////////
     // Формирование экрана результатов
     ///////////////////////////////////////////////////////////////////////////
-    private void i11_scrResult() {
+    private void scrResult() {
     	// Всё расчитываем
     	double a[][] = new double[m_size][m_size];
     	for (int r = 0; r < m_size; r++)
@@ -204,7 +203,7 @@ public class LabItem11 extends LabItem {
 		*/
 		
 		String rs = "<?xml version='1.0' encoding='UTF-8' ?>"
-				+ "<u><b>1.1 Алгоритм LU - разложения матриц<b><u><br>"
+				+ "<center><font color=red><u><b>1.1 Алгоритм LU - разложения матриц<b><u></font></center><br>"
 				+ "<u><b>Условие:</b></u>"
 				+ "<table>"
 				;
@@ -225,10 +224,10 @@ public class LabItem11 extends LabItem {
 					rs += "<td></td>";
 				else if (v == 1.0 || v == -1.0)
 					rs += "<td align=right>" + sign 
-					+ "<i>x</i><font size=1>" + c + "</font>";
+					+ "<i>x</i><sub>" + c + "</sub>";
 				else
 					rs += "<td align=right>" + sign + "<font color=blue>" + Math.abs(v) 
-						+ "</font><i>x</i><font size=1>" + c + "</font>";
+						+ "</font><i>x</i><sub>" + c + "</sub>";
 			}
 			
 			rs += "<td>=<td align=right><font color=blue>" + a2[r][m_size] + "</font>";
@@ -243,7 +242,7 @@ public class LabItem11 extends LabItem {
 		rs += "<tr><td><i>det</i><td>=<td align=right><font color=blue>" + String.format("%.2f", mdet) + "</font>";
     	
 		for (int i = 1; i <= m_size; i++) {
-			rs += "<tr><td align=right><i>x</i><font size=1>" + i + "</font><td>="
+			rs += "<tr><td align=right><i>x</i><sub>" + i + "</sub><td>="
 					+ "<td align=right><font color=blue>" + String.format("%.2f", a2[i-1][m_size]) + "</font>"; 
 		}
 		
@@ -273,7 +272,7 @@ public class LabItem11 extends LabItem {
 		
 		bt.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				i11_scrInput();
+				scrInput();
 			}
 		});
 		

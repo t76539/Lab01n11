@@ -1,9 +1,6 @@
 package lab01.n11;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.widget.LinearLayout;
 
 abstract public class LabItem {
