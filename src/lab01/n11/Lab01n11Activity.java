@@ -11,7 +11,6 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.ViewGroup.LayoutParams;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,10 +21,11 @@ import android.widget.TextView;
 import android.view.Menu;
 
 public class Lab01n11Activity extends Activity {
+	private LabItem labItem;
 	private int m_size = 0;
 	private EditText etSize;
 	private TableLayout tl;
-	private LinearLayout ll;
+	public LinearLayout ll;
 	public static EditText[][] edt; // массив матрица
 	
 	private static final int IDM_CLOSE = 101;
@@ -43,7 +43,8 @@ public class Lab01n11Activity extends Activity {
         setContentView(R.layout.main);
         ll = (LinearLayout)findViewById(R.id.ll0);
         registerForContextMenu(ll);
-        i11_scrInput();
+        
+       // i11_scrInput();
     }
     
     // Определить меню
@@ -93,11 +94,17 @@ public class Lab01n11Activity extends Activity {
     @Override
     public boolean onContextItemSelected(MenuItem item) {
     	switch (item.getItemId()) {
-    		case IDM_L11:
-    			break;
-    		default:
-    			return super.onContextItemSelected(item);
+		case IDM_L11:
+			labItem = new LabItem11(this);
+			break;
+		case IDM_L12:
+			labItem = new LabItem12(this);
+			break;
+    	default:
+    		return super.onContextItemSelected(item);
     	}
+    	
+		labItem.exec();
     	return true;
     }
     
@@ -246,7 +253,8 @@ public class Lab01n11Activity extends Activity {
     	edt[3][4].setText("12");    
     }
     
-    private void appClose() {
+    //////////////////////////////////////////////////////////////////////////
+    public void appClose() {
     	new AlertDialog.Builder(this)
     	.setTitle("Выход из приложения")
     	.setMessage("Хотите выйти из приложения?")
@@ -261,7 +269,6 @@ public class Lab01n11Activity extends Activity {
 			}
 		})
     	.show();
-    	
     }
     
     ///////////////////////////////////////////////////////////////////////////
@@ -408,4 +415,5 @@ public class Lab01n11Activity extends Activity {
     		a[r][r] = 1.0;
     	}
     }
+   
 }
