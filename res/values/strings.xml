@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="f1_s1">Введите число уравнений:</string>
+    <string name="app_name">Лаб.№1 Численные методы. Вариант №14</string>
+    <string name="f1_s2">Ввод</string>
+    <string name="f2_s1">Решение системы линейных уравнений методом Гаусса</string>
+    <string name="f2_s2">Введите коэффициенты системы:</string>
+    <string name="f2_s3">Решить систему</string>
+    <string name="f3_s1">Решение:</string>
+
+</resources>
